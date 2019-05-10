@@ -31,8 +31,8 @@ scripts:
 livere_uid: MTAyMC8yOTI2MS81ODI5
 
 # donate 打赏
-#wechatpay: /images/wechatpay.png
-#alipay:  /images/alipay.png
+wechatpay: /images/wechatpay.png
+alipay:  /images/alipay.png
 reward_comment: 文章对我有帮助，打赏作者
 
 
