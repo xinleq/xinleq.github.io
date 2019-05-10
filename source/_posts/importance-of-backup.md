@@ -19,3 +19,8 @@ tags:
 腾讯qq,使用文件传送最大可以传64G的文件，速度看情况，时快时慢。腾讯微云，非会员10G空间，上传速度目测二三百k，买会员应该会快，速度多少没研究。
 
 因为在GitHub上使用hexo建博客，这次硬盘坏掉导致数据丢失，想把GitHub上的数据pull下来，结果不行，速度超慢，5k以下的速度，然后就失败，百度n久，增大缓冲区什么的都不行，最终解决办法，把GitHub导入码云，然后pull也好，clone也好，分分钟的事。
+
+<video src="录像2.mp4" width="320" height="240" controls="controls">
+Your browser does not support the video tag.
+</video>
+
