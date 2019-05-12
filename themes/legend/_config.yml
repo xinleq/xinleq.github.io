@@ -75,8 +75,8 @@ type: atom
 path: atom
 
 # 主题主颜色
-theme_color: '#6d5aca'  #尝试替换自己喜欢的颜色 '#2ca6cb'... #
-theme_highlight_color: '#4400B3' # '#00bfff'... #
+theme_color: '#2ca6cb'  #尝试替换自己喜欢的颜色 '#6d5aca''#2ca6cb'... #
+theme_highlight_color: '#00bfff' # '#4400B3''#00bfff'... #
 
 # 代码主题 目前添加了两种: tomorrow.css | tomorrow-night.css  
 # 想要尝试更多请移步: https://jmblog.github.io/color-themes-for-google-code-prettify/ #
