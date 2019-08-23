@@ -45,6 +45,6 @@ tags:
 
    参考于：http://www.bubuko.com/infodetail-2616706.html
 
-   <video src="lovebaby.mp4" controls="controls" autoplay="autoplay"></video>
+   <video src="lovebaby.mp4" controls="controls" autoplay="autoplay" ></video>
 
 
