@@ -43,3 +43,18 @@ tags:
 发现脚本只要点击运行，Server Agent就秒停，且出现报错日志。以本人不怎么地的英语连蒙带猜可能是环境报错，本机java版本12.0.1，跟Server Agent不兼容，没能百度出解决方法。
 
 在虚拟机上Java1.8.0版本，则完美运行。
+
+java12依旧不知道该更改哪些设置可以使用，又不想卸载，在文档说明里看到下面一段话，{% asset_img ex.jpg  %}
+
+大概知道可以自己复制一个现成的jre包就可以，不一定要安装java。又看到下面的博文，https://blog.csdn.net/GHY2016/article/details/83422627
+
+综合了一下，于是复制了一个jre包放在severAgent文件夹里，本人使用windows系统，所以修改startAgent.bat文件里**java -jar %0\..\CMDRunner.jar --tool PerfMonAgent %***
+
+Java改为复制的jre的Java路径**E:\apache-jmeter-5.1.1\ServerAgent-2.2.3\jre\bin\java -jar %0\..\CMDRunner.jar --tool PerfMonAgent %***
+
+监控的线图终于出来了，可是有点怪怪的
+
+{% asset_img chart.jpg  %}
+
+但是，暂时先这样吧
+
