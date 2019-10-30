@@ -1,0 +1,196 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href="/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+</head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Hexo
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">测试理论(回溯)
+       
+        <div id="post-time" datetime="2019-05-10T15:07:49.000Z">
+          2019-05-10
+        </div>
+      
+    </h2>
+    <p>一直闲赋在家，对前段学习内容进行回顾，希望对找工作有帮助</p><br><h3 id="测试基本理论"><a href="#测试基本理论" class="headerlink" title="测试基本理论"></a>测试基本理论</h3><h5 id="一、软件测试定义"><a href="#一、软件测试定义" class="headerlink" title="一、软件测试定义"></a>一、软件测试定义</h5><p>指的是通过手工或工具对被测对象进行测试操作，从而验证实际结果与预期之间是否存在差异</p><br><h5 id="二、软件测试的作用"><a href="#二、软件测试的作用" class="headerlink" title="二、软件测试的作用"></a>二、软件测试的作用</h5><ol><br><li><p>测试工作可以发现并修复软件中存在的缺陷，从而提高用户对软件的使用信心</p><br></li><br><li><p>测试操作可以记录软件使用过程中产生的一些数据，从而为决策者提供依据</p><br></li><br><li><p>测试操作可以降低同类型软件开发的风险</p><br><p>总之，测试的目的就是通过尽可能少的人力、财力、物力来查找并解决软件中存在的缺陷从而降低商业风险</p><br></li><br></ol><br><h5 id="三、测试原则"><a href="#三、测试原则" class="headerlink" title="三、测试原则"></a>三、测试原则</h5><ol><br><li>测试说明缺陷的存在，而不能说明缺陷不存在</li><br><li>穷尽测试是不可能的</li><br><li>测试的尽早介入可以节省时间和成本</li><br><li>缺陷的群集效应</li><br><li>杀虫剂悖论</li><br><li>测试活动依赖于测试周境</li><br><li>不存在缺陷的谬论</li><br></ol><br><h5 id="四、开发过程模型"><a href="#四、开发过程模型" class="headerlink" title="四、开发过程模型"></a>四、开发过程模型</h5><ul><br><li>瀑布模型：需求分析-&gt;设计-&gt;编码-&gt;实现-&gt;软件测试-&gt;完成</li><br><li>快速原型模型</li><br><li>螺旋模型</li><br></ul><br><h5 id="五、测试模型"><a href="#五、测试模型" class="headerlink" title="五、测试模型"></a>五、测试模型</h5><ul><br><li><p>v模型：需求分析-&gt;概要设计-&gt;详细设计-&gt;编码-&gt;单元测试-&gt;集成测试-&gt;系统测试-&gt;验收测试</p><br></li><br><li><p>w模型：需求分析-&gt;概要设计-&gt;详细设计-&gt;编码-&gt;集成-&gt;实施-&gt;交付</p><br><p>               验收/系统测试设计-&gt;集成测试设计-&gt;单元测试设计-&gt;单元测试-&gt;集成测试-&gt;系统测试-&gt;验收测试</p><br><h5 id="六、测试分类"><a href="#六、测试分类" class="headerlink" title="六、测试分类"></a>六、测试分类</h5></li><br></ul><br><p>按开发阶段分：</p><br><ul><br><li>单元测试：又称模块测试，针对软件设计中的最小单位-程序模块，进行正确性检查的测试。</li><br><li>集成测试：又叫组装测试，通常在单元测试的基础上，将所有程序模块进行有序的递增的测试，重点测试不同模块的接口组成 部分</li><br><li>系统测试：系统测试在系统完毕后进行测试，前期主要测试系统的功能是否满足需求，后期主要测试系统运行的性能是否满足需求，以及系统在不同的软硬件环境中的兼容性等</li><br><li>验收测试：验收测试是部署软件之前的最后一个测试操作。它是技术测试的最后一个阶段，也称为交付测试。验收测试的目的是确保软件准备就绪，按照项目合同、任务书、双方约定的验收依据文档，向软件购买都展示该软件系统满足原始需求。</li><br></ul><br><p>     </p><br><p>关于分类，自己写了一点，百度了一下，发现下面链接的作者博客内容逻辑清晰，简洁明了，故转发</p><br><p><a href="https://www.cnblogs.com/findyou/p/6480411.html" target="_blank" rel="noopener">https://www.cnblogs.com/findyou/p/6480411.html</a></p><br><p><img src="E:\hexo\source\_posts\测试理论\Screenshot_20180315-181148.png" alt></p><br><img src="/2019/05/10/测试理论-回溯/Screenshot_20180315-181148.png" title="上面的图仅为抚慰我在家吃土的点点小郁闷"><br><br><p>上面的图仅为抚慰我在家吃土的点点小郁闷</p>
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2019/05/12/edge驱动问题/"> ← edge驱动问题 </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2019/05/10/测试理论2-回溯/"> 测试理论2(回溯) → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button" style="background-color: #2ca6cb; border: solid 2px #2ca6cb;">
+  <img id="play-img" src="/images/playback_play.png">
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src="http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715" type="audio/mpeg">
+</audio>
+
+<script>
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
+    }
+  });
+});
+</script>
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="John Doe WeChat Pay">
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="John Doe Alipay">
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    John Doe 
+    ©2019 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src="/images/rss.png" height="18" width="18">
+      
+</a></div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

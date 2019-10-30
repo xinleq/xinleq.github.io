@@ -1,0 +1,206 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href="/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+</head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Hexo
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">importance of backup
+       
+        <div id="post-time" datetime="2019-05-10T07:43:23.000Z">
+          2019-05-10
+        </div>
+      
+    </h2>
+    <p>对于自己的笔记本似乎过于自信，在我得到它的第四个年头，硬盘突然坏掉了，当有预兆的时候，我晚了一点开始尝试挽救我的数据（很显然我的反应慢了点，行动失败）。数据很多，有我花去过去一整年工资才换来的学习资料，有过去一年我自己记录的学习笔记（有学习心得也有自己跳的坑，以及怎么跳出来的)，有我花n个夜晚录制的其他学习视频。还有我国可爱的国宝大熊猫的图像资料。</p>
+<p>想起了希腊神话故事的西西弗斯。</p>
+<p>这两天一直在慢慢复原自己电脑里的东西，包括这个博客。博客的原数据没有了，只能把GitHub上的资料存档，从中恢复一些自己看来有用的文章。然后这次建立了分支，专门备份源数据。</p>
+<p>这次资料丢失，突然发现自己的笔记丢的很可惜，过去花的时间精力不谈，以后遇到需要查找的问题，有自己的笔记在的时候还是方便的多。</p>
+<p>下面说一点可能是常识的东西，但是自己刚发现。</p>
+<p>百度云盘如果上传文件夹，数量有限制，上传一个文件最大的限制是20G，需要买超级会员。如果不买会员，上传最大文件4G，上传速度200k,下载速度100k以内。</p>
+<p>腾讯qq,使用文件传送最大可以传64G的文件，速度看情况，时快时慢。腾讯微云，非会员10G空间，上传速度目测二三百k，买会员应该会快，速度多少没研究。</p>
+<p>因为在GitHub上使用hexo建博客，这次硬盘坏掉导致数据丢失，想把GitHub上的数据pull下来，结果不行，速度超慢，5k以下的速度，然后就失败，百度n久，增大缓冲区什么的都不行，最终解决办法，把GitHub导入码云，然后pull也好，clone也好，分分钟的事。</p>
+<video src="录像2.mp4" width="320" height="240" controls="controls"><br>Your browser does not support the video tag.<br></video>
+
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2019/05/10/简单的自动求职脚本(追回)/"> ← 简单的自动求职脚本(追回) </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2019/05/09/hello-world/"> Hello World → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button" style="background-color: #2ca6cb; border: solid 2px #2ca6cb;">
+  <img id="play-img" src="/images/playback_play.png">
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src="http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715" type="audio/mpeg">
+</audio>
+
+<script>
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
+    }
+  });
+});
+</script>
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="John Doe WeChat Pay">
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="John Doe Alipay">
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    John Doe 
+    ©2019 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src="/images/rss.png" height="18" width="18">
+      
+</a></div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

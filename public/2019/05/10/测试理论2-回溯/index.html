@@ -1,0 +1,224 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href="/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+</head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Hexo
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">测试理论2(回溯)
+       
+        <div id="post-time" datetime="2019-05-10T15:00:07.000Z">
+          2019-05-10
+        </div>
+      
+    </h2>
+    <p></p><h5 id="一、测试活动和测试任务"><a href="#一、测试活动和测试任务" class="headerlink" title="一、测试活动和测试任务"></a>一、测试活动和测试任务</h5><p>测试过程由以下活动组成:（源自istqb基础级大纲2018版)</p><p></p>
+<p><ul></ul></p>
+<p><li>测试计划</li></p>
+<p><li>测试监督与控制</li></p>
+<p><li>测试分析</li></p>
+<p><li>测试设计</li></p>
+<p><li>测试实施</li></p>
+<p><li>测试执行</li></p>
+<p><li>测试结束</li><br></p>
+<p></p><p>项目测试流程</p><p></p>
+<p><ul></ul></p>
+<p><li><p>搭建测试环境</p><br></li></p>
+<p><li><p>快速熟悉项目</p><br></li></p>
+<p><li><p>编写测试计划</p><br></li></p>
+<p><li><p>编写测试方案、</p><br></li></p>
+<p><li><p>设计、编写、执行测试用例</p><br></li></p>
+<p><li><p>生成测试报告</p><br></li><br></p>
+<p></p><h5 id="二、测试用例"><a href="#二、测试用例" class="headerlink" title="二、测试用例"></a>二、测试用例</h5><p>定义：测试用例（Test Case)是为测试产品是否满足某个需求而设计的一组数据，包括测试输入、执行条件、执行步骤和预期结果等内容，它是指导测试工作进行的依据</p><p></p>
+<p></p><p>测试用例包含要素：用例编号、测试模块、用例标题、用例级别、测试条件、测试输入、操作步骤、预期结果等</p><p></p>
+<p></p><h5 id="三、测试用例设计方法"><a href="#三、测试用例设计方法" class="headerlink" title="三、测试用例设计方法"></a>三、测试用例设计方法</h5><ul><p></p>
+<p><li>等价类划分法</li></p>
+<p><li>边界值法</li></p>
+<p><li>判定表法</li></p>
+<p><li>因果图法</li></p>
+<p><li>场景法</li></p>
+<p><li>流程图法</li></p>
+<p><li>错误推测法</li></p>
+<p><li>正交实验法</li><br></p></ul><br><img src="/2019/05/10/测试理论2-回溯/IMG_20180315_230714.png" title="上面的图仅为抚慰我在家吃土的点点小郁闷"><p></p>
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2019/05/10/测试理论-回溯/"> ← 测试理论(回溯) </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2019/05/10/最重要的-回溯/"> 最重要的(回溯) → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button" style="background-color: #2ca6cb; border: solid 2px #2ca6cb;">
+  <img id="play-img" src="/images/playback_play.png">
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src="http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715" type="audio/mpeg">
+</audio>
+
+<script>
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
+    }
+  });
+});
+</script>
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="John Doe WeChat Pay">
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="John Doe Alipay">
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    John Doe 
+    ©2019 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src="/images/rss.png" height="18" width="18">
+      
+</a></div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

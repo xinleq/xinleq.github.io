@@ -1,0 +1,209 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href="/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+</head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Hexo
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">简单的自动求职脚本(追回)
+       
+        <div id="post-time" datetime="2019-05-10T11:28:58.000Z">
+          2019-05-10
+        </div>
+      
+    </h2>
+    <p>写了一个简单的傻瓜式自动投简历脚本，不会筛选，也没有做框架，就一个流程下来了，为了投简历偷点懒，顺便再重新熟悉熟悉unittest基本功能点，毕竟比沈腾也小不了几岁。</p>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> unittest</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test_jobSearch</span><span class="params">(unittest.TestCase)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setUp</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 实例化驱动，打开网页</span></span><br><span class="line">        self.driver = webdriver.Edge()</span><br><span class="line">        self.driver.get(<span class="string">"https://www.zhaopin.com/"</span>)</span><br><span class="line">        self.driver.implicitly_wait(<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_searchjob</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 点击取消警示信息</span></span><br><span class="line">        self.driver.find_element_by_xpath(<span class="string">"//div[@class='risk-warning__content']/button"</span>).click()</span><br><span class="line">        <span class="comment"># 确定是否登录</span></span><br><span class="line">        self.ele = self.driver.find_element_by_xpath(<span class="string">"//span[@class='zp-userinfo']"</span>)</span><br><span class="line">        <span class="keyword">if</span> self.ele.text == <span class="string">"xxx"</span>:</span><br><span class="line">            <span class="comment"># 确认登录，定位搜索框，搜索招聘信息</span></span><br><span class="line">            self.driver.find_element_by_class_name(<span class="string">"zp-search__input"</span>).clear()</span><br><span class="line">            self.driver.find_element_by_class_name(<span class="string">"zp-search__input"</span>).send_keys(<span class="string">"软件测试"</span>)</span><br><span class="line">            self.driver.find_element_by_css_selector(<span class="string">"a.zp-search__btn.zp-search__btn--blue"</span>).click()</span><br><span class="line">            <span class="comment"># self.driver.find_element_by_class_name("zp-search__btn zp-search__btn--blue").click()</span></span><br><span class="line">            <span class="comment"># self.driver.close()</span></span><br><span class="line">        <span class="comment"># 进入招聘列表页</span></span><br><span class="line">        self.driver.switch_to.window(self.driver.window_handles[<span class="number">1</span>])</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line">        self.ele_city = self.driver.find_element_by_class_name(<span class="string">"current-city__name"</span>).text</span><br><span class="line">        <span class="comment"># print(self.ele_city)</span></span><br><span class="line">        <span class="comment"># 确定应聘城市</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.assertEqual(self.ele_city, <span class="string">"深圳"</span>)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="comment"># 不是所应聘城市，修改应聘城市信息</span></span><br><span class="line">            self.driver.find_element_by_class_name(<span class="string">"current-city__name"</span>).click()</span><br><span class="line">            time.sleep(<span class="number">5</span>)</span><br><span class="line">            self.driver.find_element_by_link_text(<span class="string">"深圳"</span>)</span><br><span class="line">        <span class="comment"># 选择最新发布信息</span></span><br><span class="line">        self.driver.find_element_by_link_text(<span class="string">"最新发布"</span>).click()</span><br><span class="line">        <span class="comment"># 下滚滚动条</span></span><br><span class="line">        js = <span class="string">"window.scrollTo(0,1000)"</span></span><br><span class="line">        self.driver.execute_script(js)</span><br><span class="line">        time.sleep(<span class="number">5</span>)</span><br><span class="line">        <span class="comment"># 应聘职位全选，</span></span><br><span class="line">        self.driver.find_element_by_class_name(<span class="string">"pagination__check__content__checkbox"</span>).click()</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line">        <span class="comment"># 点击求职申请</span></span><br><span class="line">        self.driver.find_elements_by_xpath(<span class="string">"//button[@class='a-button a--bordered a--filled' and text()='申请职位 90']"</span>)[</span><br><span class="line">            <span class="number">0</span>].click()</span><br><span class="line">        time.sleep(<span class="number">5</span>)</span><br><span class="line">        self.driver.find_element_by_css_selector(<span class="string">"button.a-button.a--bordered.a--filled"</span>)</span><br><span class="line">        <span class="comment"># 完成退出浏览器</span></span><br><span class="line">        self.driver.quit()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    unittest.main()</span><br></pre></td></tr></table></figure>
+<p></p><p>上面的代码排版也太……回头再整理吧，发布以后看到的排版还好，就这样吧</p><p></p>
+<p></p><p>说明：</p><p></p>
+<p><ol></ol></p>
+<p><li>仅在Edge下正常运行，前提是需要曾经登录过，不用再输用户名密码</li></p>
+<p><li>在Firefox下，需要登录，因为验证码问题未解决，故登录后脚本停止运行</li></p>
+<p><li>Chrome下，本机运行特别慢，正在找合适的浏览器跟驱动</li></p>
+<p><li>IE下，搜索元素定位不到，所以……</li><br>&lt;/ol</p>
+<img src="/2019/05/10/简单的自动求职脚本(追回)/640.gif" title="小可爱">
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2019/05/10/着急下班的熊宝-追回/"> ← 着急下班的熊宝(追回) </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2019/05/10/importance-of-backup/"> importance of backup → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button" style="background-color: #2ca6cb; border: solid 2px #2ca6cb;">
+  <img id="play-img" src="/images/playback_play.png">
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src="http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715" type="audio/mpeg">
+</audio>
+
+<script>
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
+    }
+  });
+});
+</script>
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="John Doe WeChat Pay">
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="John Doe Alipay">
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    John Doe 
+    ©2019 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src="/images/rss.png" height="18" width="18">
+      
+</a></div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

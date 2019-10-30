@@ -1,0 +1,212 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href="/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+</head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Hexo
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">selenium配置安装概要(回溯)
+       
+        <div id="post-time" datetime="2019-05-10T14:19:03.000Z">
+          2019-05-10
+        </div>
+      
+    </h2>
+    <p></p><p>selenium前世今生？</p><p></p>
+<p></p><p>        前世今生？有点夸张。selenium是一款支持多语言的免费开源的自动化测试软件工具，现在已经更新到selenium3。</p><p></p>
+<p></p><p>        selenium1包含selenium rc(用于运行自动化测试脚本)，selenium IDE（Firefox插件，提供图形界面录制和回放脚本）以及selenium grid(实现脚本并发执行)</p><p></p>
+<p></p><p>        selenium2 是selenium1+webdriver</p><p></p>
+<p></p><p>        selenium3去掉了seleniumRC，并在selenium2上进行了功能增强，例如提高自动化测试稳定性，支持更新更多的浏览器等。</p><p></p>
+<p></p><h5 id="关于测试工具安装配置"><a href="#关于测试工具安装配置" class="headerlink" title="关于测试工具安装配置"></a>关于测试工具安装配置</h5><p>        网上度娘可以找到很多大神详尽的图文并茂的叙述，故不再啰嗦。</p><p></p>
+<p></p><p>下面只提几个关键词，给自己加深记忆。</p><p></p>
+<p></p><p>       selenium IDE插件直接搜索下载安装即可。</p><p></p>
+<p></p><p>       <strong>着重点：selenium2</strong></p><p></p>
+<p></p><p>       因为使用python进行自动化脚本的编写，所以是基于python环境的安装。</p><p></p>
+<p></p><p>       1.<strong>python解释器</strong>：官网下载，安装</p><p></p>
+<p></p><p>       2.<strong>pycharm</strong>：python编辑器，依旧是下载安装</p><p></p>
+<p></p><p>       3.<strong>pip工具安装</strong>：搜索-下载，下载后解压，cmd下，找到setup.py文件所在的目录，输入”<em>python setup.py install</em>“命令进行安装</p><p></p>
+<p></p><p>输入“<em>pip –version</em>“可查看是否安装成功，一般python会默认自带一个低版本的pip工具，但如后续安装中出现版本兼容问题，可使用此安装方式。</p><p></p>
+<p></p><p>       4.<strong>selenium安装</strong>：<em>pip install selenium==2.48.0</em></p><p></p>
+<p></p><p>      5.<strong>浏览器驱动</strong>：各浏览器都需要下载各自对应的驱动，并添加到path环境变量中。（在脚本中使用executable_path参数指明驱动文件所在路径也可。例如：<em>driver=webdriver.Firefox(executable_path=”c:\geckodriver”）</em>),selenium3.x支持Firefox48以后版本，需要下载驱动，而Firefox48之前版本则由selenium2.x支持，无需下载驱动（有内置驱动）。</p><br><p></p>
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2019/05/10/关于selenium-IDE-回溯/"> ← 关于selenium IDE(回溯) </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2019/05/10/firefox多版本安装-回溯/"> firefox多版本安装(回溯) → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button" style="background-color: #2ca6cb; border: solid 2px #2ca6cb;">
+  <img id="play-img" src="/images/playback_play.png">
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src="http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715" type="audio/mpeg">
+</audio>
+
+<script>
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
+    }
+  });
+});
+</script>
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="John Doe WeChat Pay">
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="John Doe Alipay">
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    John Doe 
+    ©2019 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src="/images/rss.png" height="18" width="18">
+      
+</a></div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

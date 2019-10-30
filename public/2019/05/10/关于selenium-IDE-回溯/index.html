@@ -1,0 +1,200 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href="/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+</head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Hexo
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">关于selenium IDE(回溯)
+       
+        <div id="post-time" datetime="2019-05-10T14:42:14.000Z">
+          2019-05-10
+        </div>
+      
+    </h2>
+    <p></p><h4 id="selenium-IDE"><a href="#selenium-IDE" class="headerlink" title="selenium IDE"></a>selenium IDE</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>Selenium IDE是Firefox和Chrome浏览器插件，可实现网页操作步骤的录制和回放，可执行简单测试逻辑的自动化测试，可将它的脚本导出为java,python等多种语言格式的程序代码，可将认为操作网页的各种动作直接转化为自动化测试的程序代码，便于编写更加复杂的测试代码。</p><p></p>
+<p></p><h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><p>优点：小巧简单，易于上手</p><p></p>
+<p>缺点：录制脚本转换为其他语言脚本时有可能出现一些错误，需要人为修改</p><br><p>总之，Selenium IDE工具仅适合用于执行简单逻辑的自动化测试脚本，或通过录制方式导出相关的自动化测试脚本，不适于执行大中型项目的自动化测试程序</p><br><h5 id="selenium-IDE脚本的组成"><a href="#selenium-IDE脚本的组成" class="headerlink" title="selenium IDE脚本的组成"></a>selenium IDE脚本的组成</h5><p>command（命令)、target(目标定位)、value(值)</p><br><h6 id="Selenium-IDE的command命令类型："><a href="#Selenium-IDE的command命令类型：" class="headerlink" title="Selenium IDE的command命令类型："></a>Selenium IDE的command命令类型：</h6><ul><br><li>Assertions(断言)类型：</li><br></ul><br><p>waitForText：在测试执行时用来判断某些文本是否显示在界面中。若显示，测试程序继续执行；若<em>等待一段时间后</em>，不显示指定文本，测试用例被设定为<em>执行失败</em>状态，测试脚本<em>继续执行</em>。（option里可设定等待时间，默认30秒）</p><br><p>assertText：测试执行时用来判断界面上某些文本是否与预期一致。若一致，测试程序继续执行；若不一致，测试用例被设定为<em>执行失败</em>，<em>后续</em>测试脚本<em>不再执行</em>。</p><br><p>verifyText：测试执行时用来判断界面上某些文本是否与预期一致。若一致，测试脚本继续执行；不一致，测试用例被设定为<em>执行失败</em>，测试脚本<em>继续执行</em>。</p><br><ul><br><li>Accessors(存储器)类型：</li><br></ul><br><p>    storeTitle：主要用于将网页的title内容存储到变量中</p><br><p>    echo：主要用于常量字符串和变量字符创的打印输出，特别用于调试脚本时输出脚本的状态</p><br><p>例：命令</p><br><img src="/2019/05/10/关于selenium-IDE-回溯/存储器类型命令.png" title="存储title内容到变量a，在log显示区域打印变量a的值"><br><p>结果</p><br><img src="/2019/05/10/关于selenium-IDE-回溯/存储器类型命令结果.png" title="存储title内容到变量a，在log显示区域打印变量a的值"><br><ul><br><li><p>Actions(动作)类型：</p><br><p>open：打开浏览器窗口</p><br><p>openWindow：打开新的Firefox浏览器窗口</p><br><p>selectWindow：选择一个处于打开状态的窗口</p><br><p>pause：暂停（单位ms)</p><br><p>type：输入字符</p><br><p>click：点击一个按钮，链接，单选或复选框</p><br><p>refresh：刷新当前页</p><br><p>close：关闭浏览器窗口</p><br></li><br></ul><br><hr><br><p>以上内容非原创，参考《自动化框架实战指南》，命令非全部，仅为常用几种基本命令<br><br><iframe title="国宝治愈系列" src="//player.bilibili.com/player.html?aid=31723902&cid=55479363&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height="300px"> </iframe><br></p>
+
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2019/05/10/测试理论3-回溯/"> ← 测试理论3(回溯) </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2019/05/10/selenium配置安装概要-回溯/"> selenium配置安装概要(回溯) → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button" style="background-color: #2ca6cb; border: solid 2px #2ca6cb;">
+  <img id="play-img" src="/images/playback_play.png">
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src="http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715" type="audio/mpeg">
+</audio>
+
+<script>
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
+    }
+  });
+});
+</script>
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="John Doe WeChat Pay">
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="John Doe Alipay">
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    John Doe 
+    ©2019 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src="/images/rss.png" height="18" width="18">
+      
+</a></div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

@@ -1,0 +1,223 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href="/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+</head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Hexo
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">jmeter第三方图像监视器插件无响应
+       
+        <div id="post-time" datetime="2019-08-23T13:34:28.000Z">
+          2019-08-23
+        </div>
+      
+    </h2>
+    <p>今天看了会jmeter,没想到又遇到了问题。因为电脑硬盘坏的突然，很多资料都没来得急保存。后来找回一些，电脑上曾经安装的环境重装了一遍，但还是有缺漏。</p>
+<p>今天突然想用一下第三方图形监视器，于是重新下载安装：</p>
+<p>1.在<a href="https://jmeter-plugins.org/downloads/old/" target="_blank" rel="noopener">https://jmeter-plugins.org/downloads/old/</a>页下载了JMeterPlugins-Standard-1.4.0.zip,解压缩，复制JMeterPlugins-Standard.jar文件到jmeter安装目录下lib/ext/里</p>
+<p>2.服务器端，在<a href="https://jmeter-plugins.org/wiki/PerfMonAgent/" target="_blank" rel="noopener">https://jmeter-plugins.org/wiki/PerfMonAgent/</a>页下载Server Agent，最新版本2.2.3，解压缩。windows平台执行startAgent.bat文件，Linux平台执行startAgent.sh文件。</p>
+<p>结果就出了问题。</p>
+<p>监听器选了jp@gc - PerfMon Metrics Collector后，脚本无法运行，整个Jmeter关也关不上，jp@gc - PerfMon Metrics Collector图表界面没有图表，只有<em>waiting for samples</em>字样，本人Jmeter安装在Windows里，所以只好用任务管理器关闭Jmeter进程。</p>
+<p>后来看到下图红框里的文字</p>
+<img src="/2019/08/23/jmeter第三方图像监视器插件无响应/old.jpg">
+<p>于是删除了JMeterPlugins-Standard.jar，下载了jmeter-plugins-manager-1.3.jar放在jmeter安装目录下lib/ext/里，重新启动Jmeter.</p>
+<p>果然发现菜单栏 -选项里多了一项Plugins Manager</p>
+<img src="/2019/08/23/jmeter第三方图像监视器插件无响应/option.jpg">
+<p>点击选项(option)–Plugins Manager，跳出下图</p>
+<img src="/2019/08/23/jmeter第三方图像监视器插件无响应/add.jpg">
+<p>再点击Available Plugins,出现下图</p>
+<img src="/2019/08/23/jmeter第三方图像监视器插件无响应/add2.jpg">
+<p>下拉找到jpgc-Standard Set,前面空格打勾，再点击右下方Apply Changes and Restart JMeter，等Jmeter重新启动后我们需要的更新版本的jp@gc - PerfMon Metrics Collector就出现在监听器里了。</p>
+<p>果然Jmeter不再无响应，也没有报错，脚本运行正常，结果树显示正常，然而jp@gc - PerfMon Metrics Collector图表界面依旧只有<em>waiting for samples</em>字样，停止脚本重新运行就报错</p>
+<img src="/2019/08/23/jmeter第三方图像监视器插件无响应/error.jpg">
+<p>发现脚本只要点击运行，Server Agent就秒停，且出现报错日志。以本人不怎么地的英语连蒙带猜可能是环境报错，本机java版本12.0.1，跟Server Agent不兼容，没能百度出解决方法。</p>
+<p>在虚拟机上Java1.8.0版本，则完美运行。</p>
+<p>java12依旧不知道该更改哪些设置可以使用，又不想卸载，在文档说明里看到下面一段话，<img src="/2019/08/23/jmeter第三方图像监视器插件无响应/ex.jpg"></p>
+<p>大概知道可以自己复制一个现成的jre包就可以，不一定要安装java。又看到下面的博文，<a href="https://blog.csdn.net/GHY2016/article/details/83422627" target="_blank" rel="noopener">https://blog.csdn.net/GHY2016/article/details/83422627</a></p>
+<p>综合了一下，于是复制了一个jre包放在severAgent文件夹里，本人使用windows系统，所以修改startAgent.bat文件里<strong>java -jar %0..\CMDRunner.jar –tool PerfMonAgent %*</strong></p>
+<p>Java改为复制的jre的Java路径<strong>E:\apache-jmeter-5.1.1\ServerAgent-2.2.3\jre\bin\java -jar %0..\CMDRunner.jar –tool PerfMonAgent %*</strong></p>
+<p>监控的线图终于出来了，可是有点怪怪的</p>
+<img src="/2019/08/23/jmeter第三方图像监视器插件无响应/chart.jpg">
+<p>但是，暂时先这样吧</p>
+
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2019/08/24/全职高手-坚持/"> ← 全职高手-坚持 </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2019/05/31/Jmeter分布式执行机命令行启动报错处理/"> Jmeter分布式执行机命令行启动报错处理 → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button" style="background-color: #2ca6cb; border: solid 2px #2ca6cb;">
+  <img id="play-img" src="/images/playback_play.png">
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src="http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715" type="audio/mpeg">
+</audio>
+
+<script>
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
+    }
+  });
+});
+</script>
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="John Doe WeChat Pay">
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="John Doe Alipay">
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    John Doe 
+    ©2019 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src="/images/rss.png" height="18" width="18">
+      
+</a></div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+

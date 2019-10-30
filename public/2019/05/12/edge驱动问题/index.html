@@ -1,0 +1,208 @@
+
+
+
+
+
+
+<!doctype html>
+<html lang>
+
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js">
+</script>
+<link href="/plugins/code-theme/tomorrow.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/github-markdown.css">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+    
+      <link rel="stylesheet" href="/css/legend.css">
+    
+  
+</head>
+
+<body id="body-x">
+<div id="layout-content">
+  <div id="menu-outer-x">
+  <div id="menu-inner">
+    
+    
+    <div id="site-title">
+      Hexo
+    </div>
+    
+
+     
+    <div>
+    
+      
+      <a href="/">首页</a>
+      
+    
+      
+      <a href="/archives">归档</a>
+      
+    
+    </div>
+  </div>
+</div> 
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article class="markdown-body">
+    <h2 id="post-title">edge驱动问题
+       
+        <div id="post-time" datetime="2019-05-12T03:24:22.000Z">
+          2019-05-12
+        </div>
+      
+    </h2>
+    <p>这是硬盘坏的第几天来着？资料恢复行动已经告一段落，能回收的资料已经回收，电脑上之前的软件在陆续安装。</p>
+<p>因为硬盘的关系，系统也恢复了一下，结果升级后，在用selenium3写脚本时出现了新的问题，关于驱动</p>
+<p>之前发现的问题，虽然系统是64位的，但使用IE11的64位驱动，selenium3的键盘输入简直慢到令人发指。换32位驱动正常。至于驱动选择，与selenium版本号一致即可。</p>
+<p>IE获取当前网址，获取到的是<em>localhost:端口号</em></p>
+<p>为什么？？？？？？？</p>
+<p>edge浏览器之前是17版本的，17134，官网可以下到对应驱动</p>
+<p><a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/，" target="_blank" rel="noopener">https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/，</a> selenium3会出现ResourceWarning，但是脚本可以正常执行。然而此次系统恢复到原来的老版本，又更新直接更到最新版本，edge版本也更到18版本Microsoft EdgeHTML 18.17763，</p>
+<p>于是按照官网给的命令输入然后悲剧，浏览器打开网页变的很慢。于是放弃这个驱动，难道是我打开的方式不对？？？？</p>
+<p>（又试了一次，当时正用百度网盘上传文件，虽然速度只有200k,但打开网页的速度明显变慢，看来是百度网盘上传文件导致的，18版本的MicrosoftWebdriver<em>表示这锅我不背，是百度网盘和网速的问题，跟我没关系</em>）下载18版本驱动：打开命令行窗口，输入 <em>DISM.exe /Online /Add-Capability /CapabilityName:Microsoft.WebDriver~~~~0.0.1.0</em></p>
+<p>chrome打开某些网站也会很慢，目前的水平来说，使用Firefox似乎是最好选择。</p>
+<p>以上…..</p>
+<p>待解决……</p>
+<video width="320" height="240" controls="controls"><br>  <source src="panda.mp4" type="video/mp4"><br></video>
+  </article>
+
+  
+    
+    
+      <div id="page-prev-next">
+        
+        
+          <a id="page-prev-a" href="/2019/05/17/loadrunner碰壁/"> ← loadrunner碰壁 </a>
+        
+
+        
+        
+          <a id="page-next-a" href="/2019/05/10/测试理论-回溯/"> 测试理论(回溯) → </a>
+        
+      </div>
+    
+    
+    
+    
+      
+      <div id="play-button" style="background-color: #2ca6cb; border: solid 2px #2ca6cb;">
+  <img id="play-img" src="/images/playback_play.png">
+</div>
+<audio id="bgaudio" loop="loop" preload="none"> 
+  <source src="http://cdn.calm.com/scenes/scene-Qqkzy9k7Eo.m4a?v=1418162240715" type="audio/mpeg">
+</audio>
+
+<script>
+$(document).ready(function(){
+  //播放按钮点击
+  var audio = $("#bgaudio")[0];
+  var img = $("#play-img")[0];
+  $("#play-button").click(function(){ 
+    if (audio.paused || audio.ended) {
+      audio.play();
+      img.src = "/images/playback_pause.png";
+    } else {
+      audio.pause();
+      img.src = "/images/playback_play.png";
+    }
+  });
+});
+</script>
+    
+
+    
+    
+
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div id="reward_comment">文章对我有帮助，打赏作者</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.png" alt="John Doe WeChat Pay">
+          <p>微信</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.png" alt="John Doe Alipay">
+          <p>支付宝</p>
+        </div> 
+      
+    </div>
+  </div>
+
+
+  
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTI2MS81ODI5">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+<div id="bottom-outer">
+  
+  <div id="bottom-inner">
+    John Doe 
+    ©2019 |Powered by  
+    <a href="http://hexo.io" target="_blank">Hexo</a> with theme 
+    <a href="https://github.com/iHongRen/legend" target="_blank">legend</a>
+  </div>
+    
+    
+    
+      <a href="/atom.xml">
+      
+      <img src="/images/rss.png" height="18" width="18">
+      
+</a></div> 
+
+
+  
+  
+    <script src="/js/legend.js"></script>
+  
+
+
+</body>
+</html>
+
+
+<script>
+$(window).on('load', function(){
+   $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+   prettyPrint();
+ });
+</script>
+
