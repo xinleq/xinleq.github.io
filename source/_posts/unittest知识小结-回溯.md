@@ -1,0 +1,31 @@
+---
+title: unittest知识小结(回溯)
+date: 2019-05-10 22:08:50
+tags:
+---
+
+<h4 id="unittest单元测试框架支持自动化"><a href="#unittest单元测试框架支持自动化" class="headerlink" title="unittest单元测试框架支持自动化"></a>unittest单元测试框架支持自动化</h4><p>unittest单元测试框架是标准python语言中的一个模块，主要用于python语言程序的单元测试。拥有支持自动化测试、测试用例间共享setUp和shutDown代码块，集合所有的测试用例并且将测试结果独立地展示在报告框架中的特性。</p>
+<h5 id="核心："><a href="#核心：" class="headerlink" title="核心："></a>核心：</h5><ol>
+<li><p>test fixture(测试固件)</p>
+<p>一个test fixture代表一个或多个测试执行前的准备动作和测试结束后的清理动作</p>
+</li>
+<li><p>test case（测试用例）</p>
+<p>一个test case就是一个最小测试单元，也就是一个完整的测试流程。针对一组特殊的输入进行特殊的验证与相应。通过集成unittest提供的测试基类（TestCase），可以创建新的测试用例</p>
+</li>
+<li><p>test suite（测试套件）</p>
+<p>一个test suite就是一组测试用例，一组测试套件或者两者共同组成的集合。它的作用是将测试用例集合到一起，然后一次性执行集合中所有的测试用例。</p>
+</li>
+<li><p>test runner（测试运行器）</p>
+<p>一个test runner由执行设定的测试用例和将测试结果提供给用户两部分功能组成。</p>
+</li>
+</ol>
+<h5 id="单元测试加载方法"><a href="#单元测试加载方法" class="headerlink" title="单元测试加载方法"></a>单元测试加载方法</h5><p>在unittest单元测试框架中，提供了两种单元测试的加载方法：</p>
+<p>1）直接通过unittest.main()方法加载单元测试的测试模块。</p>
+<p>2）将所有的单元测试用例（Test Case）添加到测试套件（Test Suite）集合中，然后一次性加载所有测试对象。</p>
+<h5 id="TestCase类中定义的几个特殊方法"><a href="#TestCase类中定义的几个特殊方法" class="headerlink" title="TestCase类中定义的几个特殊方法"></a>TestCase类中定义的几个特殊方法</h5><ol>
+<li>setUp()：每个测试方法运行前运行，测试前的初始化工作</li>
+<li>tearDown()：每个测试方法运行结束后运行，测试后的清理工作</li>
+<li>setUpClass()：所有的测试方法运行前运行，单元测试前期准备，必须使用@classmethod装饰器进行修饰，setUp()函数之前执行，整个测试过程只执行一次</li>
+<li>tearDownClass()：所有的测试方法运行结束后执行，单元测试后期清理，必须使用@classmethod装饰器进行修饰，tearDown()之后执行，整个测试过程只执行一次</li>
+</ol>
+{% asset_img image.jpg %}
