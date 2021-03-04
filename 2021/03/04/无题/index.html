@@ -5,7 +5,7 @@
   
 
 <head>
-	<title>Oh&gt;..&lt; 无法访问! -  hi mogul</title>
+	<title>无题 -  hi mogul</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="keywords" content="hi mogul,hexo-theme-dearmsdan一款Hexo主题宝钻蓝色,It gives people a sense of emptiness,hexo简约主题,HEXO,dearmsdan.com" />
 	<meta name="description" content="It gives people a sense of emptiness">
@@ -398,31 +398,75 @@
 			<div class="main">
 				<div class="main-content">
 					
-<div class="dearmsdan-post" id="Permalinks">
-  <article>
-    <style>
-    #no{
-    position: relative;
-        top: 30%;
-        left: 50%;
-        -webkit-transform: translate(-50%, 32%);
-        -moz-transform: translate(-50%, 32%);
-        -ms-transform: translate(-50%, 32%);
-        -o-transform: translate(-50%, 32%);
-        transform: translate(-50%, 32%);
-        font-size: 24px;
-    line-height: 72px;
-    margin-bottom: 36px;
-    white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-    }
+
+
+
+<style>
+	#dearmsdanPost:hover{
+   		    background-color: rgba(255, 255, 255, 0.5)!important;
+	}	
 </style>
-<div id="no">
-    404 Oh>..<  我找不到回家的路了
+<div class="dearmsdan">
+	<div class="dearmsdan-post" id="dearmsdanPost">
+		<div class="dearmsdan-title">
+			<h1>无题</h1>
+		</div>
+	  <div id="post" class="dearmsdan-post-Statistics">
+            <a>2021年03月04日</a>
+		  	<a class="post-count">99 字</a>
+		
+		
+	  </div>
+		
+		
+<div id="modal" style="display:none">
+
+<aside id="article-toc" class="fixed-toc">
+    <div id="article-toc-inner">
+        <strong class="sidebar-title">目录</strong>
+        
+    </div>
+</aside>
 </div>
-  </article>
-	
+
+
+		
+			<a href="#modal" class="second">
+				<div class="i">
+						<i style="font-size:20px" class="DearMsDanIconFont icon-sousuo">
+						<span style="font-size:0px"><br/>目<br/>录</span>
+						</i>
+				</div>
+			</a>
+
+
+
+
+<script>
+	$(".second .i").mouseover(function(){
+  $(".second .i span").css("font-size","18px");
+});
+	$(".second .i").mouseleave(function(){
+  $(".second .i span").css("font-size","0px");
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+		<div>
+			  <article>
+				<p>​          记录一个小事情，小的时候考完试自己总感觉不好，当然也有对照组感觉良好的，然后出来成绩就反过来了，于是被人觉得假。长大了以后，一次考证，因为没怎么准备，考完出来感觉特别良好，至于自己答的啥，对错完全不知，但卷子写完了，出了考场就是莫名地感觉良好 。那一瞬间我也突然明白了小时候考完试的情形。今天写这个事情，是因为今天也感觉良好，但结果大抵不随心愿了，哎……</p>
+
+			  </article>
+		</div>
 		
 		
 
@@ -481,7 +525,50 @@ $(window).load(function(){
 });*/
 </script>
 			
+		
+	  
+	
+		
+
+
+<div class="copy">
+<i></i>
+<strong>本文作者：</strong>
+	
+	 
+			钱<br>
+        
+	
+<strong>本文链接：</strong>
+	<a href="https://xinleq.github.io/2021/03/04/%E6%97%A0%E9%A2%98/" title="https:&#x2F;&#x2F;xinleq.github.io&#x2F;2021&#x2F;03&#x2F;04&#x2F;%E6%97%A0%E9%A2%98&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;xinleq.github.io&#x2F;2021&#x2F;03&#x2F;04&#x2F;%E6%97%A0%E9%A2%98&#x2F;</a><br>
 </div>
+
+	  
+	</div>
+</div>
+<script>
+	(function(){
+		var jmz = {};
+		jmz.GetLength = function(str) {
+			var realLength = 0, len = str.length, charCode = -1;
+			for (var i = 0; i < len; i++) {
+				charCode = str.charCodeAt(i);
+				if (charCode >= 0 && charCode <= 128) 
+					  realLength += 1;
+				else
+					  realLength += 1;
+			}
+			return realLength;
+		};
+		//console.log(str);
+		var article = document.querySelector('.dearmsdan-post article').innerHTML.trim();
+
+		var b = article.replace(/<.*?>/ig,"");
+		
+		$('.post-count').html(jmz.GetLength(b)+"字");
+	})()
+</script>
+
 
     				
 					
